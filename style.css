@@ -1,8 +1,8 @@
 /* Body Styling */
 body {
     font-family: Arial, sans-serif;
-    background-color: white;  /* Change background color to white */
-    color: black;  /* Text color becomes black for better contrast */
+    background-color: white;
+    color: black;
     margin: 0;
     padding: 0;
     display: flex;
@@ -18,27 +18,54 @@ body {
 .dragon-background {
     position: absolute;
     top: 50%;
-    left: -200px;  /* Start off-screen */
-    width: 300px;  /* Size of the dragon GIF */
+    left: -200px;
+    width: 300px;
     height: 200px;
     background-image: url('https://d.furaffinity.net/art/dawnwolf93/1605303710/1605303684.dawnwolf93_dragon_flying.gif');
     background-size: contain;
     background-repeat: no-repeat;
-    animation: flyDragon 20s linear infinite;  /* Flying animation */
-    z-index: -1;  /* Ensures it stays in the background */
+    animation: flyDragon 20s linear infinite;
+    z-index: -1;
+}
+
+/* Animated Background Text Styling */
+.background-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+    color: rgba(255, 255, 255, 0.6);  /* Light white with opacity */
+    font-weight: bold;
+    white-space: nowrap;
+    animation: moveText 10s linear infinite;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);  /* Shadow for better visibility */
+}
+
+/* Keyframe for animating the background text */
+@keyframes moveText {
+    0% {
+        transform: translate(-100%, -50%);  /* Start from left off-screen */
+    }
+    50% {
+        transform: translate(50%, -50%);  /* Center in the middle of the screen */
+    }
+    100% {
+        transform: translate(100%, -50%);  /* Move to the right off-screen */
+    }
 }
 
 /* Header Styling */
 header {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     animation: fadeIn 2s ease-out;
     position: relative;
 }
 
 header h1 {
     font-size: 36px;
-    color: #00FF00;  /* Green color */
+    color: #00FF00;
     margin: 0;
 }
 
@@ -51,14 +78,28 @@ header h1 {
     animation: bounce 2s infinite ease-in-out;
 }
 
+/* Description Styling */
+.description {
+    text-align: center;
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 90%;
+    margin-top: 20px;
+}
+
 /* Chatbox Container */
 .chatbox {
     width: 400px;
-    background-color: #1e90ff;  /* Change message screen to blue */
+    background-color: #1e90ff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     overflow: hidden;
-    z-index: 1;  /* Make sure it's on top of the dragon */
+    z-index: 1;
 }
 
 /* Messages Section */
@@ -68,7 +109,7 @@ header h1 {
     overflow-y: auto;
     border-bottom: 1px solid #444;
     font-size: 16px;
-    color: white;  /* Change message text to white for contrast */
+    color: white;
 }
 
 /* Input Field Styling */
@@ -103,20 +144,18 @@ button:hover {
 /* Animation for flying dragon */
 @keyframes flyDragon {
     0% {
-        left: -300px; /* Start off-screen to the left */
-        top: 40%;     /* Vertical position */
+        left: -300px;
+        top: 40%;
     }
     50% {
-        left: 50%;    /* Middle of the screen */
-        top: 30%;     /* Slightly move up */
+        left: 50%;
+        top: 30%;
     }
     100% {
-        left: 100%;   /* Move off-screen to the right */
-        top: 40%;     /* Return to the original vertical position */
+        left: 100%;
+        top: 40%;
     }
 }
-
-/* Other animations (e.g., bounce, pulse) stay the same */
 
 /* Fade-In for header */
 @keyframes fadeIn {
@@ -128,6 +167,7 @@ button:hover {
     }
 }
 
+/* Bounce Animation */
 @keyframes bounce {
     0%, 100% {
         transform: translateY(0);
@@ -137,6 +177,7 @@ button:hover {
     }
 }
 
+/* Pulse Animation */
 @keyframes pulse {
     0% {
         transform: scale(1);
