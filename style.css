@@ -10,6 +10,21 @@ body {
     align-items: center;
     height: 100vh;
     justify-content: center;
+    position: relative;  /* Make sure other elements are on top of the dragon */
+    overflow: hidden;    /* Prevent scrollbars from appearing */
+}
+
+/* Dragon Background Animation */
+.dragon-background {
+    position: absolute;
+    top: 50%;               /* Start from the middle of the screen */
+    left: -200px;           /* Start the dragon off-screen */
+    width: 300px;           /* Size of the dragon */
+    height: 200px;          /* Size of the dragon */
+    background-image: url('https://www.handleyregional.org/sites/default/files/styles/large/public/2022-01/Dragon%20Clipart.jpg?itok=7x0M0oGz'); /* Dragon image */
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: flyDragon 20s linear infinite; /* Infinite flying animation */
 }
 
 /* Header Styling */
@@ -17,6 +32,7 @@ header {
     text-align: center;
     margin-bottom: 20px;
     animation: fadeIn 2s ease-out;
+    position: relative; /* Keeps header above the dragon */
 }
 
 header h1 {
@@ -111,6 +127,22 @@ button:hover {
     }
     100% {
         transform: scale(1);
+    }
+}
+
+/* Animation for flying dragon */
+@keyframes flyDragon {
+    0% {
+        left: -300px; /* Start the dragon off-screen to the left */
+        top: 40%;     /* Set vertical starting point */
+    }
+    50% {
+        left: 50%;    /* Move the dragon to the center */
+        top: 20%;     /* Slightly move up */
+    }
+    100% {
+        left: 100%;   /* Move the dragon off-screen to the right */
+        top: 40%;     /* Return to the original vertical position */
     }
 }
 
