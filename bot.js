@@ -14,16 +14,41 @@ const answers = {
     "who made you": "I was created by developers to assist and provide answers to your questions.",
     "tell me a joke": "Why don’t skeletons fight each other? They don’t have the guts!",
     "what is your favorite color": "I don't have a favorite color, but I like blue!",
-    // Default answer in Bangla for unrecognized questions
-    "default": "Tui ki boltesis? Ami bujtesina, amake akdom birokto korbi na. Amr boss er kase nalis korbo."
+    // Default response in case API also fails
+    "default": "I couldn't find an answer. Please try rephrasing your question."
 };
 
-// Function to handle the user input and return an appropriate response
-function askQuestion() {
+// Function to fetch answer from DuckDuckGo API
+async function getDuckDuckGoAnswer(query) {
+    try {
+        const response = await fetch(`https://api.duckduckgo.com/?q=${query}&format=json`);
+        const data = await response.json();
+        return data.AbstractText || null; // Return the abstract text if available
+    } catch (error) {
+        console.error("Error fetching answer:", error);
+        return null;
+    }
+}
+
+// Function to handle user input and return a response
+async function askQuestion() {
     const userQuestion = userInput.value.toLowerCase();
     if (userQuestion) {
-        const answer = answers[userQuestion] || answers["default"];
         messages.innerHTML += `<p><strong>You:</strong> ${userQuestion}</p>`;
+
+        // Check predefined answers first
+        let answer = answers[userQuestion];
+
+        if (!answer) {
+            // If not found, fetch from API
+            answer = await getDuckDuckGoAnswer(userQuestion);
+        }
+
+        // If API also doesn't have an answer, use default response
+        if (!answer) {
+            answer = answers["default"];
+        }
+
         messages.innerHTML += `<p><strong>Bot:</strong> ${answer}</p>`;
         userInput.value = "";
         messages.scrollTop = messages.scrollHeight; // Scroll to the bottom
