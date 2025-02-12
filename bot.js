@@ -6,7 +6,7 @@ const answers = {
     "hello": "Hi! How can I help you today?",
     "how are you": "I'm doing great, thank you for asking!",
     "what is your name": "I am Rana AI, your friendly web bot.",
-    "bye": "Goodbye!Useless Have a Bad day😂!",
+    "bye": "Goodbye!Useless Have a Bad day!",
     "what is the time": "I don't know the exact time, but it's always a good time to chat!",
     "can you help me?": "Yes, of course! Ask me anything, and I'll try to assist.",
     // Let's generate more questions and answers (this is just an example of how to add them)
