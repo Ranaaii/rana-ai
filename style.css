@@ -1,8 +1,8 @@
 /* Body Styling */
 body {
     font-family: Arial, sans-serif;
-    background-color: black;  /* Set background to black */
-    color: white;             /* Text color to white */
+    background-color: black;
+    color: white;
     margin: 0;
     padding: 0;
     display: flex;
@@ -10,21 +10,21 @@ body {
     align-items: center;
     height: 100vh;
     justify-content: center;
-    position: relative;  /* Make sure other elements are on top of the dragon */
-    overflow: hidden;    /* Prevent scrollbars from appearing */
+    position: relative;
+    overflow: hidden;
 }
 
 /* Dragon Background Animation */
 .dragon-background {
     position: absolute;
-    top: 50%;               /* Start from the middle of the screen */
-    left: -200px;           /* Start the dragon off-screen */
-    width: 300px;           /* Size of the dragon */
-    height: 200px;          /* Size of the dragon */
-    background-image: url('https://www.handleyregional.org/sites/default/files/styles/large/public/2022-01/Dragon%20Clipart.jpg?itok=7x0M0oGz'); /* Dragon image */
+    top: 50%;
+    left: -200px;   /* Starts off-screen */
+    width: 300px;   /* Size of the dragon */
+    height: 200px;
+    background-image: url('https://www.handleyregional.org/sites/default/files/styles/large/public/2022-01/Dragon%20Clipart.jpg?itok=7x0M0oGz');
     background-size: contain;
     background-repeat: no-repeat;
-    animation: flyDragon 20s linear infinite; /* Infinite flying animation */
+    animation: flyDragon 20s linear infinite;  /* Flying animation */
 }
 
 /* Header Styling */
@@ -32,28 +32,28 @@ header {
     text-align: center;
     margin-bottom: 20px;
     animation: fadeIn 2s ease-out;
-    position: relative; /* Keeps header above the dragon */
+    position: relative;
 }
 
 header h1 {
     font-size: 36px;
-    color: #00FF00;  /* Green color for heading */
+    color: #00FF00;  /* Green color */
     margin: 0;
 }
 
 .bot-image {
-    width: 100px;  /* Adjust the size of the image */
+    width: 100px;
     height: 100px;
     border-radius: 50%;
     margin-top: 10px;
-    border: 3px solid #00FF00;  /* Green border around the image */
+    border: 3px solid #00FF00;
     animation: bounce 2s infinite ease-in-out;
 }
 
 /* Chatbox Container */
 .chatbox {
     width: 400px;
-    background-color: #333;  /* Dark background for the chatbox */
+    background-color: #333;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     overflow: hidden;
@@ -62,7 +62,7 @@ header h1 {
 /* Messages Section */
 .messages {
     padding: 20px;
-    height: 400px;  /* Larger height for the message screen */
+    height: 400px;
     overflow-y: auto;
     border-bottom: 1px solid #444;
     font-size: 16px;
@@ -76,7 +76,7 @@ input[type="text"] {
     border: 1px solid #555;
     border-radius: 5px;
     font-size: 14px;
-    color: #333;  /* Dark text for input field */
+    color: #333;
 }
 
 /* Button Styling */
@@ -84,7 +84,7 @@ button {
     width: 15%;
     padding: 12px;
     margin: 15px;
-    background-color: #00FF00;  /* Green button */
+    background-color: #00FF00;
     border: none;
     border-radius: 5px;
     color: white;
@@ -94,10 +94,28 @@ button {
 }
 
 button:hover {
-    background-color: #66ff66;  /* Light green on hover */
+    background-color: #66ff66;
 }
 
-/* Animation for fading in the header */
+/* Animation for flying dragon */
+@keyframes flyDragon {
+    0% {
+        left: -300px; /* Start off-screen to the left */
+        top: 40%;     /* Vertical position */
+    }
+    50% {
+        left: 50%;    /* Middle of the screen */
+        top: 30%;     /* Slightly move up */
+    }
+    100% {
+        left: 100%;   /* Move off-screen to the right */
+        top: 40%;     /* Return to the original vertical position */
+    }
+}
+
+/* Other animations (e.g., bounce, pulse) stay the same */
+
+/* Fade-In for header */
 @keyframes fadeIn {
     0% {
         opacity: 0;
@@ -107,7 +125,6 @@ button:hover {
     }
 }
 
-/* Animation for bouncing the image */
 @keyframes bounce {
     0%, 100% {
         transform: translateY(0);
@@ -117,7 +134,6 @@ button:hover {
     }
 }
 
-/* Animation for button pulsing */
 @keyframes pulse {
     0% {
         transform: scale(1);
@@ -128,29 +144,4 @@ button:hover {
     100% {
         transform: scale(1);
     }
-}
-
-/* Animation for flying dragon */
-@keyframes flyDragon {
-    0% {
-        left: -300px; /* Start the dragon off-screen to the left */
-        top: 40%;     /* Set vertical starting point */
-    }
-    50% {
-        left: 50%;    /* Move the dragon to the center */
-        top: 20%;     /* Slightly move up */
-    }
-    100% {
-        left: 100%;   /* Move the dragon off-screen to the right */
-        top: 40%;     /* Return to the original vertical position */
-    }
-}
-
-/* Message Text Styling */
-p {
-    margin: 5px 0;
-}
-
-strong {
-    color: #00FF00;  /* Green for strong text */
 }
