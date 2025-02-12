@@ -18,13 +18,14 @@ body {
 .dragon-background {
     position: absolute;
     top: 50%;
-    left: -200px;   /* Starts off-screen */
-    width: 300px;   /* Size of the dragon */
+    left: -200px;  /* Start off-screen */
+    width: 300px;  /* Size of the dragon GIF */
     height: 200px;
-    background-image: url('https://www.handleyregional.org/sites/default/files/styles/large/public/2022-01/Dragon%20Clipart.jpg?itok=7x0M0oGz');
+    background-image: url('https://d.furaffinity.net/art/dawnwolf93/1605303710/1605303684.dawnwolf93_dragon_flying.gif');
     background-size: contain;
     background-repeat: no-repeat;
     animation: flyDragon 20s linear infinite;  /* Flying animation */
+    z-index: -1;  /* Ensures it stays in the background */
 }
 
 /* Header Styling */
@@ -57,6 +58,7 @@ header h1 {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     overflow: hidden;
+    z-index: 1;  /* Make sure it's on top of the dragon */
 }
 
 /* Messages Section */
