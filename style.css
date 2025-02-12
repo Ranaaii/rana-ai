@@ -1,8 +1,8 @@
 /* Body Styling */
 body {
     font-family: Arial, sans-serif;
-    background-color: black;
-    color: white;
+    background-color: white;  /* Change background color to white */
+    color: black;  /* Text color becomes black for better contrast */
     margin: 0;
     padding: 0;
     display: flex;
@@ -54,7 +54,7 @@ header h1 {
 /* Chatbox Container */
 .chatbox {
     width: 400px;
-    background-color: #333;
+    background-color: #1e90ff;  /* Change message screen to blue */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     overflow: hidden;
@@ -68,6 +68,7 @@ header h1 {
     overflow-y: auto;
     border-bottom: 1px solid #444;
     font-size: 16px;
+    color: white;  /* Change message text to white for contrast */
 }
 
 /* Input Field Styling */
