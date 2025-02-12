@@ -1,58 +1,124 @@
+/* Body Styling */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
+    background-color: black;  /* Set background to black */
+    color: white;             /* Text color to white */
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     height: 100vh;
+    justify-content: center;
 }
 
+/* Header Styling */
+header {
+    text-align: center;
+    margin-bottom: 20px;
+    animation: fadeIn 2s ease-out;
+}
+
+header h1 {
+    font-size: 36px;
+    color: #00FF00;  /* Green color for heading */
+    margin: 0;
+}
+
+.bot-image {
+    width: 100px;  /* Adjust the size of the image */
+    height: 100px;
+    border-radius: 50%;
+    margin-top: 10px;
+    border: 3px solid #00FF00;  /* Green border around the image */
+    animation: bounce 2s infinite ease-in-out;
+}
+
+/* Chatbox Container */
 .chatbox {
-    width: 350px;
-    background-color: #fff;
+    width: 400px;
+    background-color: #333;  /* Dark background for the chatbox */
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     overflow: hidden;
 }
 
+/* Messages Section */
 .messages {
-    padding: 15px;
-    height: 300px;
+    padding: 20px;
+    height: 400px;  /* Larger height for the message screen */
     overflow-y: auto;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #444;
+    font-size: 16px;
 }
 
+/* Input Field Styling */
 input[type="text"] {
     width: 80%;
-    padding: 10px;
-    margin: 10px;
-    border: 1px solid #ccc;
+    padding: 12px;
+    margin: 15px;
+    border: 1px solid #555;
     border-radius: 5px;
     font-size: 14px;
+    color: #333;  /* Dark text for input field */
 }
 
+/* Button Styling */
 button {
     width: 15%;
-    padding: 10px;
-    margin: 10px;
-    background-color: #5cb85c;
+    padding: 12px;
+    margin: 15px;
+    background-color: #00FF00;  /* Green button */
     border: none;
     border-radius: 5px;
     color: white;
     font-size: 14px;
     cursor: pointer;
+    animation: pulse 2s infinite;
 }
 
 button:hover {
-    background-color: #4cae4c;
+    background-color: #66ff66;  /* Light green on hover */
 }
 
+/* Animation for fading in the header */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Animation for bouncing the image */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Animation for button pulsing */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Message Text Styling */
 p {
     margin: 5px 0;
 }
 
 strong {
-    color: #333;
+    color: #00FF00;  /* Green for strong text */
 }
